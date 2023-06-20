@@ -9,6 +9,10 @@ class HomesController < ApplicationController
     @home.stations.new
   end
 
+  def confirm
+    @home = Home.new(home_params)
+  end
+  
   def create
     @home = Home.new(home_params)
     if @home.save

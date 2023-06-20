@@ -1,6 +1,6 @@
 <h1>物件登録</h1>
 
-<%= form_with(model: @home, local: true) do |form| %>
+<%= form_with(model: @home, local: true, url: confirm_homes_path ) do |form| %>
 
       <p><%= form.label :物件名 %></p>
       <p><%= form.text_field :name %></p>
@@ -17,9 +17,10 @@
       <p><%= form.label :"備考" %></p>
       <p><%= form.text_area :remarks %></p>
 
+      <% @number = 0 %>
       <hr noshade>
-      <p>最寄り駅1</p>
       <%= form.fields_for :stations do | station | %>
+      <p>最寄り駅<%= @number += 1 %></p>
       
       <p><%= station.label :route, "路線名" %></p>
       <p><%= station.text_field :route %></p>

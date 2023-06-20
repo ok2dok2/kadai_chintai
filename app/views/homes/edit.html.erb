@@ -5,8 +5,8 @@
       <p><%= form.label :物件名 %></p>
       <p><%= form.text_field :name %></p>
 
-      <p><%= form.label :"賃料" %></p>
       <p><%= form.text_field :rent %></p>
+      <p><%= form.label :"賃料" %></p>
 
       <p><%= form.label :"住所" %></p>
       <p><%= form.text_field :address %></p>
@@ -18,9 +18,10 @@
       <p><%= form.text_area :remarks %></p>
 
       <hr noshade>
-      <p>最寄り駅1</p>
+      <% number = 0 %>
       <%= form.fields_for :stations do | station | %>
-      
+      <p>最寄り駅<% number += 1 %></p>
+        
       <p><%= station.label :route, "路線名" %></p>
       <p><%= station.text_field :route %></p>
 

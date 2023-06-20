@@ -6,6 +6,7 @@ class HomesController < ApplicationController
   def new
     @home = Home.new
     @home.stations.new
+    @home.stations.new
   end
 
   def create

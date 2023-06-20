@@ -10,17 +10,17 @@
   </tr>
 
   <% @homes.each do |home| %>
-    <th>
-      <th><%= home.name %></th>
-      <th><%= home.rent %>円</th>
-      <th><%= home.address %></th>
-      <th><%= home.age %>年</th>
-      <th><%= home.remarks %></th>
-      <th><%= link_to "詳細",home_path(home.id) %></th>
-      <th><%= link_to "編集",edit_home_path(home.id) %></th>
-      <th><%= link_to "削除",edit_home_path(home.id), method: :delete %></th>
-    </th>
+    <tr>
+        <th><%= home.name %></th>
+        <th><%= home.rent %>円</th>
+        <th><%= home.address %></th>
+        <th><%= home.age %>年</th>
+        <th><%= home.remarks %></th>
+        <th><%= link_to "詳細",home_path(home.id) %></th>
+        <th><%= link_to "編集",edit_home_path(home.id) %></th>
+        <th><%= link_to "削除",home_path(home.id), method: :delete %></th>
+    </tr>
+    <% end %>
 </table>
-<% end %>
 
 <p><%= link_to "物件を登録する", new_home_path %></p>

@@ -17,18 +17,30 @@ class HomesController < ApplicationController
     end
   end
 
+  def show
+    @home = Home.find(params[:id])
+  end
+
+
   def edit
-    @home = Home.new(home_params)
+    @home = Home.find(params[:id])
   end
 
   def update
-    @home = Home.new(home_params)
-    if @home.update
+    @home = Home.find(params[:id])
+    if @home.update(home_params)
       redirect_to homes_path, notice: "更新しました"
     else
       render :new
     end
   end
+  
+  def destroy
+    @home = Home.find(params[:id])
+    @home.destroy
+      redirect_to homes_path, notice:"削除しました"
+  end
+
   private
 
   def home_params

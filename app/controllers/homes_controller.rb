@@ -29,6 +29,7 @@ class HomesController < ApplicationController
 
   def edit
     @home = Home.find(params[:id])
+    @home.stations.new
   end
 
   def update
@@ -49,6 +50,6 @@ class HomesController < ApplicationController
   private
 
   def home_params
-    params.require(:home).permit(:name, :rent, :address, :age, :remarks, stations_attributes: [:route, :station, :minute])
+    params.require(:home).permit(:name, :rent, :address, :age, :remarks, stations_attributes: [:id, :route, :station, :minute])
   end
 end

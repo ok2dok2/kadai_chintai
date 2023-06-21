@@ -16,9 +16,11 @@
         <th><%= home.address %></th>
         <th><%= home.age %>年</th>
         <th><%= home.remarks %></th>
+        <div class="overline">
         <th><%= link_to "詳細",home_path(home.id) %></th>
         <th><%= link_to "編集",edit_home_path(home.id) %></th>
         <th><%= link_to "削除",home_path(home.id), method: :delete %></th>
+        </div>
     </tr>
     <% end %>
 </table>

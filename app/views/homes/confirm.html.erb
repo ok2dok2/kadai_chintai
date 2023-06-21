@@ -1,0 +1,33 @@
+<%= form_with(model: @home, local: true) do |form| %>
+
+    <p><%= form.hidden_field :name %></p>
+    <p><%= form.hidden_field :rent %></p>
+    <p><%= form.hidden_field :address %></p>
+    <p><%= form.hidden_field :age %></p>
+    <p><%= form.hidden_field :remarks %></p>
+    
+    <p>物件名：<%= @home.name %></p>
+    <p>賃料：<%= @home.rent %></p>
+    <p>住所：<%= @home.address %></p>
+    <p>築年数：<%= @home.age %></p>
+    <p>備考：<%= @home.remarks %></p>
+
+  <% @number = 0 %>
+    <hr noshade>
+  <%= form.fields_for :stations do | station | %>
+      <p>最寄り駅<%= @number += 1 %></p>
+    
+      <p><%= station.hidden_field :route %></p>
+      <p><%= station.hidden_field :station %></p>
+      <p><%= station.hidden_field :minute %></p>
+      <% end %>
+
+    <% @home.stations.each do |station| %>
+      <p>路線名：<%= station.route %></p>
+      <p>駅名：<%= station.station %></p>
+      <p>徒歩分数：<%= station.minute %></p>
+    <% end %>
+
+
+  <%= form.submit "登録する" %>
+<% end %>
